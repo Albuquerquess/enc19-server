@@ -1,6 +1,4 @@
 import express, { Request, Response } from "express";
-import multer from 'multer'
-import multerConfig from './config/multer'
 
 const router = express.Router()
 
@@ -10,9 +8,16 @@ if (Boolean(process.env.DEV_ENV) == true){
     })
 }
 
-
-router.post('/contato', multer(multerConfig).single('file'), (request, response) => {
-    return response.json({message: 'ok'})
+router.get('/users/show/', (request, response) => {
+    const {id, email} = request.query
+    return response.json({message: {
+        id: id,
+        name: 'Gustavo',
+        email: email,
+        phone: '84996465565',
+        registed_at: '2021-03-26T01:05:02.849Z'
+    }})
 })
+
 
 export default router
