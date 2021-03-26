@@ -1,5 +1,11 @@
 import express, { Request, Response } from "express";
 
+// Controllers
+import userController from './controllers/users/usersControllers'
+// import contentController from "@controllers/conent/contentController";
+
+const UserController = new userController()
+// const ContentController = new contentController()
 const router = express.Router()
 
 if (Boolean(process.env.DEV_ENV) == true){
@@ -8,16 +14,9 @@ if (Boolean(process.env.DEV_ENV) == true){
     })
 }
 
-router.get('/users/show/', (request, response) => {
-    const {id, email} = request.query
-    return response.json({message: {
-        id: id,
-        name: 'Gustavo',
-        email: email,
-        phone: '84996465565',
-        registed_at: '2021-03-26T01:05:02.849Z'
-    }})
-})
+// user
+router.post('/user/register', UserController.register)
+
 
 
 export default router
