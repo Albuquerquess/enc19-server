@@ -10,4 +10,4 @@ app.use(express.urlencoded( {extended: true}))
 app.use(morgan('dev'))
 app.use(router)
 
-app.listen(3333)
+app.listen(3333, () => console.log('listening on\n>localhost<\nhttp://localhost:3333/'))
