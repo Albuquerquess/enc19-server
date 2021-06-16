@@ -23,3 +23,5 @@ jspm_packages/
 .nuxt
 dist
 
+# database
+src/database/*_database.sqlite

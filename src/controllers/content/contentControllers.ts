@@ -156,7 +156,8 @@ class contentController {
         .join('content', 'content.id', '=', 'content_desc.content_id')
         .where('content_desc.type', String(type))
         .where('content_desc.category', String(category))
-        .where('content_desc.title', 'like', `%${String(search)}%`)
+        .orWhere('content_desc.title', 'like', `%${String(search)}%`)
+        .orWhere('content_desc.desc', 'like', `%${String(search)}%`)
         .orderBy('content.id', 'desc')
         .select([
           'content_desc.id',
