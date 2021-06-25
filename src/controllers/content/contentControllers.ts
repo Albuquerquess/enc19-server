@@ -8,7 +8,6 @@ class contentController {
   async create (request: Request, response: Response) {
     const { originalname, size, nameWithHash, location: url = '' } = request.file
     const { type, category, title, desc } = request.query
-    console.log(type, category, title, desc)
 
     const trx = await contentConnection.transaction()
 
