@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "preinstall": "npm run build",
-    "install": "npm install",
+    "preinstall": "npm run build && npm install",
     "start": "node dist/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "knex:latest:content": "knex --knexfile ./knex/contentKnexFile.ts migrate:latest",
